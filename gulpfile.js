@@ -13,6 +13,8 @@ var runSequence = require('run-sequence')
 var gulpif = require('gulp-if')
 var watch = require('gulp-watch')
 var batch = require('gulp-batch')
+var uglify = require('gulp-uglify')
+var htmlmin = require('gulp-htmlmin')
 
 //////////////////////////////////////////////////////////////////////////////////////////
 var DEV = false
@@ -69,8 +71,9 @@ gulp.task('scripts', function () {
       .pipe(plumber())
       .pipe(source('bundle.js'))
       .pipe(buffer())
+      .pipe(gulpif(!DEV, uglify()))
       .pipe(gulp.dest('./js'))
-      .pipe((gulpif(DEV, connect.reload())));
+      .pipe(gulpif(DEV, connect.reload()));
   }
 
   return bundle();
@@ -79,6 +82,7 @@ gulp.task('scripts', function () {
 //////////////////////////////////////////////////////////////////////////////////////////
 gulp.task('html', function () {
   return gulp.src(['./src/*.html', './src/*.json'])
+    .pipe(gulpif(!DEV, htmlmin({collapseWhitespace: true})))
     .pipe(gulp.dest('.'))
 })
 
