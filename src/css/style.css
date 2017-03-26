@@ -1,0 +1,79 @@
+@import './reset.css';
+
+html {
+    height: 100%;
+    width: 100%;
+    font-family: 'PT Mono'
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    color: #fff;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.gradient-layout {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all 1800ms linear;
+}
+
+.gradient-layout.fade-out {
+  opacity: 0;
+}
+
+.social-block {
+    margin-top: -90px;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.social-block__link {
+    margin: 0 25px;
+    font-size: 14px;
+}
+
+.social-block__icon {
+    color: #fff;
+    display: block;
+    position: relative;
+}
+
+.social-block__icon .fa {
+  text-shadow: 0 0 15px rgba(0, 0, 0, .25)
+}
+.social-block__text {
+    position: absolute;
+    display: none;
+    left: 0px;
+    top: 140%;
+}
+.social-block__icon:hover .fa  {
+  text-shadow: 0 0 15px rgba(0, 0, 0, .40)
+}
+.social-block__icon:hover .social-block__text {
+    display: block;
+}
+
+@media (max-width:768px) {
+    .social-block__link {
+        font-size: 12px;
+        margin: 25px 30px;
+    }
+    .social-block__icon:hover .social-block__text {
+        display: none;
+    }
+}

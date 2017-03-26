@@ -23,25 +23,32 @@ time, mark, audio, video {
     font: inherit;
     vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
+
 body {
     line-height: 1;
 }
+
 ol, ul {
     list-style: none;
 }
+
 blockquote, q {
     quotes: none;
 }
+
 blockquote:before, blockquote:after,
 q:before, q:after {
     content: '';
     content: none;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -54,40 +61,45 @@ html {
 }
 
 body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     height: 100%;
     width: 100%;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-direction: column;
     -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-justify-content: center;
+        flex-direction: column;
     -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-align-items: center;
+        justify-content: center;
     -ms-flex-align: center;
-            align-items: center;
+        align-items: center;
     text-align: left;
     color: #fff;
     background-size: cover;
     position: relative;
     overflow: hidden;
 }
+
+.gradient-layout {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: all 1800ms linear;
+}
+
+.gradient-layout.fade-out {
+  opacity: 0;
+}
+
 .social-block {
     margin-top: -90px;
     z-index: 3;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: center;
+        justify-content: center;
 }
 
 .social-block__link {
@@ -100,11 +112,20 @@ body {
     display: block;
     position: relative;
 }
+
+.social-block__icon .fa {
+  text-shadow: 0 0 15px rgba(0, 0, 0, .25)
+}
+
 .social-block__text {
     position: absolute;
     display: none;
     left: 0px;
     top: 140%;
+}
+
+.social-block__icon:hover .fa  {
+  text-shadow: 0 0 15px rgba(0, 0, 0, .40)
 }
 
 .social-block__icon:hover .social-block__text {
