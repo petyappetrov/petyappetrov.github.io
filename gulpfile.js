@@ -20,14 +20,13 @@ var DEV = false
 //////////////////////////////////////////////////////////////////////////////////////////
 gulp.task('server', function () {
   return connect.server({
-    root: './assets/',
     livereload: true
   })
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////
 gulp.task('clean', function () {
-  return del(['./assets'])
+  return del(['css', 'js', '*.html', 'gradients.json'])
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -46,7 +45,7 @@ gulp.task('styles', function () {
   return gulp.src('./src/css/style.css')
     .pipe(plumber())
     .pipe(postcss(processors))
-    .pipe(gulp.dest('./assets/css'))
+    .pipe(gulp.dest('./css'))
     .pipe((gulpif(DEV, connect.reload())));
 })
 
@@ -70,7 +69,7 @@ gulp.task('scripts', function () {
       .pipe(plumber())
       .pipe(source('bundle.js'))
       .pipe(buffer())
-      .pipe(gulp.dest('./assets/js'))
+      .pipe(gulp.dest('./js'))
       .pipe((gulpif(DEV, connect.reload())));
   }
 
@@ -80,7 +79,7 @@ gulp.task('scripts', function () {
 //////////////////////////////////////////////////////////////////////////////////////////
 gulp.task('html', function () {
   return gulp.src(['./src/*.html', './src/*.json'])
-    .pipe(gulp.dest('./assets'))
+    .pipe(gulp.dest('.'))
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////
