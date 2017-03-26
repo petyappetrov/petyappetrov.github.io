@@ -4,6 +4,9 @@ import Disco from './Disco'
 /////////////////////////////////////////////////////////////////////////////////////////
 document.addEventListener('DOMContentLoaded', () => {
   const disco = new Disco({
-    autoStart: true
+    duration: {
+      max: 5000,
+      min: 1000
+    }
   })
 })

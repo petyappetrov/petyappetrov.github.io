@@ -9,18 +9,22 @@ class Gradients {
   }
 
   load (callback) {
-    const request = new XMLHttpRequest()
-    let response = null;
-    request.open('GET', './gradients.json', true)
-    request.send()
-    request.onload = () => {
-      if (request.status === 200) {
+    try {
+      const request = new XMLHttpRequest()
+      request.open('GET', './gradients.json', true)
+      request.send()
+      request.onload = () => {
+        if (request.status !== 200) {
+          throw new Error('Failed load json')
+        }
         this.gradients = JSON.parse(request.response)
         this.cache = this.gradients
         if (typeof callback === 'function') {
           callback.call(this, this.gradients)
         }
-      }
+      } 
+    } catch (err) {
+      console.error(err)
     }
   }
 

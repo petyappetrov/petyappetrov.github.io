@@ -3,8 +3,9 @@ import {getRandomNumber} from './utils'
 
 //////////////////////////////////////////////////////////////////////////////////////////
 class Layout {
-  constructor ({gradient}) {
+  constructor ({gradient, duration}) {
     this.gradient = gradient
+    this.duration = duration
     if (this.gradient) {
       this.createNode()
     }
@@ -13,6 +14,7 @@ class Layout {
   createNode () {
     this.node = document.createElement('div')
     this.node.className = 'gradient-layout'
+    this.node.style.transitionDuration = `${this.duration}ms`
     this.node.style.background = `
       linear-gradient(
         ${getRandomNumber(360)}deg,

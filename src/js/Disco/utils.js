@@ -2,3 +2,28 @@
 export function getRandomNumber (max) {
   return Math.floor(Math.random() * max)
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////
+export function getLast (values) {
+  if (values) {
+    return values[values.length]
+  }
+  return null
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+export function getFirst (values) {
+  if (values) {
+    return values[0]
+  }
+  return null
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+export function getNext (values, name) {
+  const next = values[values.indexOf(name) + 1]
+  if (next) {
+    return next
+  }
+  return getFirst(values)
+}
