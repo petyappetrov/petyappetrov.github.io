@@ -3,7 +3,9 @@
 html {
     height: 100%;
     width: 100%;
-    font-family: 'PT Mono'
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -37,40 +39,23 @@ body {
     margin-top: -90px;
     z-index: 3;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
+    flex-direction: column;
 }
 
 .social-block__link {
-    margin: 0 25px;
-    font-size: 14px;
-}
-
-.social-block__icon {
+    margin: 15px 0;
+    font-size: 24px;
     color: #fff;
-    display: block;
-    position: relative;
-}
-
-.social-block__icon .fa {
-  text-shadow: 0 0 15px rgba(0, 0, 0, .25)
-}
-.social-block__text {
-    position: absolute;
-    display: none;
-    left: 0px;
-    top: 140%;
-}
-.social-block__icon:hover .fa  {
-  text-shadow: 0 0 15px rgba(0, 0, 0, .40)
-}
-.social-block__icon:hover .social-block__text {
-    display: block;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
 }
 
 @media (max-width:768px) {
     .social-block__link {
-        font-size: 12px;
         margin: 25px 30px;
     }
     .social-block__icon:hover .social-block__text {
